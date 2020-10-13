@@ -13,13 +13,9 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.authentication.config.GlobalConfiguration;
-import com.authentication.repository.UserRepository;
 
 @Service
 public class JwtUserDetailsService implements UserDetailsService {
-
-    @Autowired
-    private UserRepository userRepository;
 
     @Autowired
     private GlobalConfiguration globalConfiguration;
@@ -34,7 +30,7 @@ public class JwtUserDetailsService implements UserDetailsService {
 
 	// Return user with encrypted password from database
 
-	System.out.println(userRepository.findByUserName(userName));
+	// System.out.println(userRepository.findByUserName(userName));
 
 	final Map<String, String> user = globalConfiguration.fetchUserDetails(userName);
 
